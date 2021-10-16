@@ -21,6 +21,16 @@ app.get('/projects', async (req, res) => {
   return res.status(200).json(searchResults.rows);
 });
 
+app.post('/projects', async (req, res) => {
+  const { projectname, technology, description } = req.body;
+  if (!projectname || !technology || !description) {
+    return res.sendStatus(404);
+  }
+  const insertString = `INSERT INTO projects VALUES ('${projectname}', '${technology}', '${description}')`;
+  await db.query(insertString);
+  return res.sendStatus(200);
+});
+
 app.use((req, res) => res.status(404));
 
 app.listen(5001, () => console.log(`Server running on port 5001`));
