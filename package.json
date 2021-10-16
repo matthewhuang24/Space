@@ -1,0 +1,28 @@
+{
+  "name": "projecttracker",
+  "version": "1.0.0",
+  "description": "projectTracker main repo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/starProjectTracker/projectTracker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/starProjectTracker/projectTracker/issues"
+  },
+  "homepage": "https://github.com/starProjectTracker/projectTracker#readme",
+  "devDependencies": {
+    "concurrently": "^6.3.0",
+    "cross-env": "^7.0.3",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.13",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  }
+}
