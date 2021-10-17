@@ -44,7 +44,7 @@ const Input = () => {
     const arrayToSend = [];
     for (let i = 0; i < technologyTypes.length; i++) {
       if (checkedState[i]) {
-        arrayToSend.push(technologyTypes[i])
+        arrayToSend.push(technologyTypes[i]);
       }
     }
     
