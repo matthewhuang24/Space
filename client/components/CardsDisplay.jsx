@@ -5,7 +5,8 @@ import SearchDisplay from './SearchDisplay.jsx';
 
 const CardsDisplay = () => {
   return (
-  <div>
+  <div id='cardsDisplay'>
+    <div id='cardsDisplayTitle'><b>Search for Projects</b></div>
     <SearchBar />
     {/* <SearchDisplay /> */}
   </div>

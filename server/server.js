@@ -18,6 +18,7 @@ app.get('/projects/:tech', async (req, res) => {
   const searchResults = await db.query(
     `SELECT * FROM projects WHERE technology='${tech}';`
   );
+  // .then to set the results on res.locals.data? and then .json res.locals.data
   return res.status(200).json(searchResults.rows);
 });
 

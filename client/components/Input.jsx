@@ -11,7 +11,7 @@ const Input = () => {
     'redux',
     'node',
     'express',
-    'sql',
+    'SQL',
     'mongo',
     'webpack'
   ]
@@ -34,7 +34,10 @@ const Input = () => {
     techCheckboxes.push(
       <div>
         <input type='checkbox' name={tech} index={i} value={tech} onChange={() => handleChange(i)}/>
-        <label for={tech}>{tech.toUpperCase()}</label>
+        <label for={tech}>{
+
+          tech
+        }</label>
       </div>
     )
   }
@@ -52,33 +55,42 @@ const Input = () => {
     console.log('technology:', arrayToSend);
     console.log('description:', description);
 
-    fetch('/projects', { //change after meetup
+    fetch('http://localhost:5001/projects', { //change after meetup
       method: 'POST',
       headers: {
         'Content-Type' : 'application/json'
       },
       body: JSON.stringify({
-        'name': name,
+        'projectname': name,
         'technology': arrayToSend,
         'description': description
       })
-    })  
+    })
+      .then(() => {
+        setName('');
+        setDescription('');
+      })
+        
   }
   
   return (
-    <div>
-      <div>Project name:</div>
-      <input value={name} onChange={e => setName(e.target.value)} placeholder='Name'></input> <br/>
-      {/* <input value={technology} placeholder='Technology'></input> */}
-      <h2>Technologies used:</h2>
-      <div id='checkboxes'>
-
-        {techCheckboxes}
-
+    <div id='input'>
+      <div id='left'>
+        <div><b>Project name:</b></div>
+        <input value={name} onChange={e => setName(e.target.value)} placeholder='Name'></input> <br/><br/>
+        {/* <input value={technology} placeholder='Technology'></input> */}
+        <div><b>Technologies used:</b></div>
+        <div id='checkboxes'>
+          {techCheckboxes}
+        </div> <br/>
       </div>
-      <div>Description:</div>
-      <input value={description} onChange={e => setDescription(e.target.value)} placeholder='Description'></input>
-      <button onClick={sendCard}>Send</button>
+      
+      <div id='right'>
+        <div><b>Description:</b></div>
+        <textarea rows='4' cols='60' value={description} onChange={e => setDescription(e.target.value)} placeholder='Write your description here:'></textarea>
+        <button id='savebutton' onClick={sendCard}>Save</button>
+      </div>
+
     </div>
     
 

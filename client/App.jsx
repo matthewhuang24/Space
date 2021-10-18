@@ -7,7 +7,11 @@ import CardsDisplay from './components/CardsDisplay.jsx';
 
 const App = () => {
   return (
-    <div>Project Tracker
+    <div >
+      <h1>
+        Project Tracker
+      </h1>
+      {/* <img src=''> */}
       <Input />
       <CardsDisplay />
     </div>

@@ -16,22 +16,26 @@ const SearchBar = () => {
 
     fetch(searchUrl)
       .then(res => res.json())
-      .then(jsonData => {
-        setSearchResults(jsonData)
+      .then((jsonData) => {
+        setSearchResults(jsonData);
+        setTech('');
       })
   }
 
   const arr = [];
   for (let i = 0; i < searchResults.length; i++) {
-    arr.push(<Card info={searchResults[i]}/>)
+    arr.push(<Card key={i} info={searchResults[i]}/>)
   }
 
   return (
-    <div>Inside SearchBar
-      <input value={tech} onChange={e => setTech(e.target.value)} placeholder='Technology to search for'></input>
-      <button onClick={handleOnClick}>Search</button>
-
-      {arr}
+    <div>
+      <div id='searchbar'>
+        <input id='searchInput' value={ tech } onChange={e => setTech(e.target.value)} placeholder='Technology to search for'></input>
+        <button onClick={ handleOnClick }>Search</button>
+      </div>
+      <div id='results'>
+        {arr}
+      </div>
     </div>
     
     
