@@ -1,0 +1,10 @@
+html {
+  /* box-sizing: border-box; */
+  font: 100% 'Source Sans Pro', arial;
+  color: rgb(55, 55, 55);
+}
+
+#checkboxes {
+  display: flex;
+  flex-direction: row;
+}
