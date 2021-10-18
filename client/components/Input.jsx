@@ -48,7 +48,9 @@ const Input = () => {
       }
     }
     
-    console.log(arrayToSend);
+    console.log('name:', name);
+    console.log('technology:', arrayToSend);
+    console.log('description:', description);
 
     fetch('/projects', { //change after meetup
       method: 'POST',

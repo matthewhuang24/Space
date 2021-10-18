@@ -23,11 +23,15 @@ module.exports = {
         },
       },
       {
-        test: /\.css/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader'],
+        test: /\.s?css/,
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
       },
       // {
-      //   test: /scss$/,
+      //   test: /\.s?css/,
+      //   use: ['style-loader', 'css-loader', 'sass-loader'],
+      // },
+      // {
+      //   test: /\.scss$/,
       //   exclude: /node_modules/,
       //   loaders: ['style-loader', 'css-loader', 'sass-loader'],
       // }, //we added this for sass

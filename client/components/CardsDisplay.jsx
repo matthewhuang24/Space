@@ -7,7 +7,7 @@ const CardsDisplay = () => {
   return (
   <div>
     <SearchBar />
-    <SearchDisplay />
+    {/* <SearchDisplay /> */}
   </div>
   )
 }

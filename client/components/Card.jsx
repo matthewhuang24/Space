@@ -1,8 +1,9 @@
 import React, {useState, useEffect} from 'react';
 
-const Card = () => {
+// check the props object, console.log
+const Card = (props) => {
   return (
-		<div>Inside Card</div>
+		<div>{props.info}</div>
 	)
 }
 
