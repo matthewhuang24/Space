@@ -15,10 +15,9 @@ app.get('/', (req, res) => {
 
 app.get('/projects/:tech', async (req, res) => {
   const { tech } = req.params;
-  console.log(req.params);
   const searchResults = await db.query(
     `SELECT * FROM projects WHERE technology='${tech}';`
-  ); //not sure if front end will give us data in this format
+  );
   return res.status(200).json(searchResults.rows);
 });
 
