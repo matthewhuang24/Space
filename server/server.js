@@ -13,10 +13,11 @@ app.get('/', (req, res) => {
   return res.sendFile(path.resolve(__dirname, '../index.html'));
 });
 
-app.get('/projects', async (req, res) => {
-  console.log('in projects get request');
+app.get('/projects/:tech', async (req, res) => {
+  const { tech } = req.params;
+  console.log(req.params);
   const searchResults = await db.query(
-    `SELECT * FROM projects WHERE technology='${req.body.technology}';`
+    `SELECT * FROM projects WHERE technology='${tech}';`
   ); //not sure if front end will give us data in this format
   return res.status(200).json(searchResults.rows);
 });
@@ -26,8 +27,10 @@ app.post('/projects', async (req, res) => {
   if (!projectname || !technology || !description) {
     return res.sendStatus(404);
   }
-  const insertString = `INSERT INTO projects VALUES ('${projectname}', '${technology}', '${description}')`;
-  await db.query(insertString);
+  technology.forEach((tech) => {
+    const insertString = `INSERT INTO projects VALUES ('${projectname}', '${tech}', '${description}')`;
+    db.query(insertString);
+  });
   return res.sendStatus(200);
 });
 
