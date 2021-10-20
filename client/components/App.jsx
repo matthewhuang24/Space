@@ -5,13 +5,13 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import '../styles/tailwind.css';
 
 import Welcome from './Welcome';
-import Home from './Home';
+import Dashboard from './Dashboard';
 
 const App = () => {
   return (
     <Router>
       <Switch>
-        <Route exact path='/dashboard' component={Home}/>
+        <Route exact path='/dashboard' component={Dashboard}/>
         <Route exact path="/" component={Welcome}/>
       </Switch>
     </Router>
