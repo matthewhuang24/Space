@@ -1,5 +1,5 @@
 {
-  "name": "projectTracker",
+  "name": "project-velocirabbit",
   "version": "1.0.0",
   "description": "",
   "main": "./client/components/App.jsx",
