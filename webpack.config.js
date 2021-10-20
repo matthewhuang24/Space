@@ -1,53 +1,70 @@
 const path = require('path');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+const mode = process.env.NODE_ENV === 'production' ? 'production' : 'development';
 
 module.exports = {
-  entry: './client/index.js',
+  mode,
+
+  entry: './client/components/App.jsx',
+
   output: {
     path: path.resolve(__dirname, 'build'),
     filename: 'bundle.js',
   },
-  mode: 'development',
+
   module: {
     rules: [
       {
-        //added .jsx to webpack
-        test: /\.jsx?/, 
+        loader: "babel-loader",
+        test: /\.jsx$/,
         exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-env', '@babel/preset-react'],
-          },
-        },
       },
       {
-        test: /\.s?css/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+        test: /\.(sass|css|scss)$/,
+        use: [
+          "style-loader",
+          "css-loader",
+          "postcss-loader",
+          // {
+          //   // Run postcss actions
+          //   loader: "postcss-loader",
+          //   options: {
+          //     // `postcssOptions` is needed for postcss 8.x;
+          //     // if you use postcss 7.x skip the key
+          //     postcssOptions: {
+          //       // postcss plugins, can be exported to postcss.config.js
+          //       plugins: () => [require("autoprefixer")()]
+          //     },
+          //   }
+          // },
+        ],
       },
-      // {
-      //   test: /\.s?css/,
-      //   use: ['style-loader', 'css-loader', 'sass-loader'],
-      // },
-      // {
-      //   test: /\.scss$/,
-      //   exclude: /node_modules/,
-      //   loaders: ['style-loader', 'css-loader', 'sass-loader'],
-      // }, //we added this for sass
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        use: ["file-loader"],
+      },
     ],
   },
+
   devServer: {
-    allowedHosts: ['http://localhost8080'],
+    static: path.join(__dirname, "build"),
+
+    compress: true,
+
+    port: 8080,
+
+    hot: true,
+
+    historyApiFallback: true,
+
+    proxy: {
+      "/api": "http://localhost:3000",
+    },
   },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: './index.html',
-    }),
-    new MiniCssExtractPlugin(),
-  ],
+
+  resolve: {
+    extensions: ['.js', '.jsx']
+  },
+  
+  devtool: "eval",
 };
-// publicPath: '/build',
-// proxy: {
-//   '/api': 'http://localhost:3000'
-// }
