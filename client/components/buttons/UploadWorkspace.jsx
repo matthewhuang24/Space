@@ -6,7 +6,7 @@ const UploadWorkspace = (props) => {
 
     Promise.resolve(file.text())
       .then(res => {
-        localStorage.clear()
+        localStorage.clear();
         window.localStorage.setItem(props.storageKey, res);
       })
       .then(() => {
