@@ -7,7 +7,10 @@ import logo from '../../images/temp.png';
 
 const Welcome = (props) => {
   localStorage.clear();
+<<<<<<< HEAD
+=======
 
+>>>>>>> b7fc29a0f73893cf05833e175aa5fc8748fcd178
   if (localStorage.key(0)) {
     window.location.replace('/dashboard');
   }

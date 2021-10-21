@@ -7,6 +7,7 @@ import '../styles/tailwind.css';
 import Welcome from './Welcome.jsx';
 import Dashboard from './Dashboard.jsx';
 
+
 const App = () => {
   return (
     <Router>

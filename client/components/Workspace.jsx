@@ -2,6 +2,7 @@ import React, { useState, useEffect, Fragment } from 'react';
 import { Dropdown, DropdownItem, DropdownLink } from '@material-tailwind/react';
 import "@material-tailwind/react/tailwind.css";
 import { saveAs } from "file-saver";
+import Card from './Card.jsx';
 
 const Workspace = (props) => {
   const [showModal, setShowModal] = useState(false);
@@ -15,6 +16,16 @@ const Workspace = (props) => {
     localStorage.key(0)
       ? saveAs(workspaceToSave, workspaceName)
       : alert("Empty Workspace");
+  };
+  let projectCards;
+  if(localStorage.key(0)) {
+    const localStorageKey = localStorage.key(0);
+    const LSObject = localStorage.getItem(localStorageKey);
+    const parsedObj = JSON.parse(LSObject);
+
+    projectCards = parsedObj.projects.map(({name, technologies, description}) => (
+      <Card  name={name} tech={technologies} description={description}/>
+    ))
   };
 
   const uploadItem = () => localStorage.setItem(props.storageKey);
@@ -135,6 +146,7 @@ const Workspace = (props) => {
       </div>
 
       {/* Render Project components here */}
+      {projectCards}
     </div>
   );
 };
