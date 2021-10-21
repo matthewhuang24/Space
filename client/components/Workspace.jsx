@@ -46,7 +46,7 @@ const Workspace = () => {
                           placement='bottom-start'
                           buttonText='Technologies'
                           buttonType='filled'
-                          size='regular'
+                          size='sm'
                           rounded={false}
                           block={false}
                           ripple='light'>

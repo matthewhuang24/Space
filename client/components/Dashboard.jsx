@@ -1,15 +1,12 @@
 import React from 'react';
-import { useLocation } from 'react-router';
-import Workspace from './Workspace'
 
-const Dashboard = () => {
-  //const location = useLocation();
-  //const { header } = location.state;
+import Navbar from './Navbar';
 
+const Dashboard = (props) => {
   return (
-      <div className='static mx-auto flex flex-col justify-center items-stretch h-screen'>
-        <Workspace />
-      </div>
+    <>
+      <Navbar storageKey={props.storageKey}/>
+    </>
   );
 };
 
