@@ -3,6 +3,9 @@ import React from 'react';
 import UploadWorkspace from './buttons/UploadWorkspace';
 import NewWorkspace from './buttons/NewWorkspace';
 
+
+
+
 const Welcome = () => {
   return (
     <div className="md:container md:mx-auto flex flex-col justify-center items-center h-screen">
@@ -16,5 +19,8 @@ const Welcome = () => {
     </div>
   )
 };
+
+
+
 
 export default Welcome;
