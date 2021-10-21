@@ -1,8 +1,25 @@
 {
-  "workspace": {
     "projects": [
       {
-        "name": "MY 1ST PROJECT",
+        "name": "REFACTORED PROJECT TRACKER",
+        "technologies": [
+          "React",
+          "React Router",
+          "React Hooks"
+        ],
+        "description": "TAILWIND CSS, OPTIMIZING WEBPACK"
+      },
+      {
+        "name": "ENZYME CHAI TESTS",
+        "technologies": [
+          "React",
+          "TailwindCSS"
+          
+        ],
+        "description": ""
+      },
+      {
+        "name": "FILE UPLOAD / DOWNLOAD",
         "technologies": [
           "React",
           "React Router",
@@ -11,5 +28,4 @@
         "description": "I PLANNED MY 1ST PROJECT!!"
       }
     ]
-  }
 }
