@@ -1,0 +1,16 @@
+{
+  "workspaceId": "test_id",
+  "workspace": {
+    "projects": [
+      {
+        "name": "MY 1ST PROJECT",
+        "technologies": [
+          "React",
+          "React Router",
+          "React Hooks"
+        ],
+        "description": "I PLANNED MY 1ST PROJECT!!"
+      }
+    ]
+  }
+}
