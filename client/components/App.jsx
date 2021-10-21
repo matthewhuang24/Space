@@ -7,6 +7,7 @@ import '../styles/tailwind.css';
 import Welcome from './Welcome';
 import Dashboard from './Dashboard';
 
+
 const App = () => {
   const key = uuidv4();
   
@@ -24,4 +25,8 @@ const App = () => {
   );
 };
 
+
 ReactDOM.render(<App />, document.getElementById('root'));
+
+
+
