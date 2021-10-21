@@ -1,12 +1,34 @@
 import React, { useState, useEffect, Fragment } from 'react';
 import { Dropdown, DropdownItem, DropdownLink } from '@material-tailwind/react';
 import "@material-tailwind/react/tailwind.css";
+import { saveAs } from "file-saver";
+import Card from './Card.jsx';
 
-const Workspace = () => {
+const Workspace = (props) => {
   const [showModal, setShowModal] = useState(false);
 
-  const downloadItem = () => localStorage.getItem('props.storageKey');
-  const uploadItem = () => localStorage.setItem('props.storageKey');
+  const downloadWorkspace = () => {
+    const retrievedData = JSON.parse(window.localStorage.getItem(props.storageKey));
+    const workspaceName = 'my-workspace.json';
+
+    const workspaceToSave = new Blob([JSON.stringify(retrievedData)], { type: 'application/json' });
+
+    localStorage.key(0)
+      ? saveAs(workspaceToSave, workspaceName)
+      : alert("Empty Workspace");
+  };
+  let projectCards;
+  if(localStorage.key(0)) {
+    const localStorageKey = localStorage.key(0);
+    const LSObject = localStorage.getItem(localStorageKey);
+    const parsedObj = JSON.parse(LSObject);
+
+    projectCards = parsedObj.projects.map(({name, technologies, description}) => (
+      <Card  name={name} tech={technologies} description={description}/>
+    ))
+  };
+
+  const uploadItem = () => localStorage.setItem(props.storageKey);
 
   return (
     <div className='w-full h-screen border-style: solid border-4 border-blue-500'>
@@ -116,18 +138,15 @@ const Workspace = () => {
           {/* Save/Download Button */}
 
           <button
-            onClick={downloadItem}
+            onClick={downloadWorkspace}
             className='py-2 px-4 ml-5 mt-2 mb-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md transform transition motion-reduce:transform-none hover:scale-125 duration-500 focus:outline-none'>
             Save/Download Project
           </button>
         </div>
       </div>
 
-      {/* project cards */}
-      <div className='w-full flex flex-col justify-center items-center h-fill border-style: solid border-2 border-pink-500'>
-        <div className='flex flex-col justify-center items-center'>Project</div>
-        <div className='flex flex-col justify-center items-center'>Project</div>
-      </div>
+      {/* Render Project components here */}
+      {projectCards}
     </div>
   );
 };
