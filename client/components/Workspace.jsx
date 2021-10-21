@@ -15,8 +15,13 @@ const Workspace = () => {
   
   const handleSubmit = (e) => {
     e.preventDefault();
-    muiltiselect.current.getSelectedItems()
-
+    const technologies = muiltiselect.current.getSelectedItems()
+    console.log(technologies)
+    console.log(titleInput)
+    console.log(descriptionInput)
+    localStorage.setItem("names", titleInput);
+    localStorage.setItem("technologies", technologies);
+    localStorage.setItem("description", descriptionInput);
   }
 
 
@@ -50,7 +55,7 @@ const Workspace = () => {
                     </div>
                     {/*body*/}
                     <div className='flex flex-col justify-center items-start p-6 '>
-                      <form onSubmit={handleSubmit}
+                      <form onSubmit={handleSubmit} 
                       className='flex flex-col justify-center items-start'>
                       <H6 color="black">Title</H6>
                         <input
@@ -69,6 +74,8 @@ const Workspace = () => {
                           onSelect={function noRefCheck() {}}
                           options={[
                             'React',
+                            'React Router',
+                            'React Hooks',
                             'Redux',
                             'Express',
                             'SQL',
@@ -104,6 +111,7 @@ const Workspace = () => {
                       <button
                         className='py-2 px-4 ml-5 mt-2 mb-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md transform transition motion-reduce:transform-none hover:scale-125 duration-500 focus:outline-none'
                         type='submit'
+                        value='submit'                 
                         onClick={() => setShowModal(false)}>
                         Confirm
                       </button>
