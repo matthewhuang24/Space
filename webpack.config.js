@@ -5,11 +5,11 @@ const mode = process.env.NODE_ENV === 'production' ? 'production' : 'development
 module.exports = {
   mode,
 
-  entry: './client/components/App.jsx',
+  entry: "./client/components/App.jsx",
 
   output: {
-    path: path.resolve(__dirname, 'build'),
-    filename: 'bundle.js',
+    path: path.resolve(__dirname, "build"),
+    filename: "bundle.js",
   },
 
   module: {
@@ -45,10 +45,6 @@ module.exports = {
       "/api": "http://localhost:3000",
     },
   },
-
-  resolve: {
-    extensions: ['.jsx', '.js']
-  },
   
-  devtool: "eval",
+  devtool: "eval-cheap-module-source-map",
 };
