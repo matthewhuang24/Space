@@ -5,9 +5,8 @@ const UploadWorkspace = (props) => {
     const file = event.target.files[0];
 
     Promise.resolve(file.text())
-      .then(res => JSON.parse(res))
-      .then(data => {
-        window.localStorage.setItem(props.storageKey, data);
+      .then(res => {
+        window.localStorage.setItem(props.storageKey, res);
         window.location = '/dashboard';
       })
       .catch(err => console.error(err));
