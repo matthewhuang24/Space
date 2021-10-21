@@ -6,6 +6,8 @@ import NewWorkspace from './buttons/NewWorkspace.jsx';
 import logo from '../../images/temp.png';
 
 const Welcome = (props) => {
+  localStorage.clear();
+
   if (localStorage.key(0)) {
     window.location.replace('/dashboard');
   }
