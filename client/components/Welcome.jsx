@@ -1,7 +1,7 @@
 import React from 'react';
 
-import UploadWorkspace from './buttons/UploadWorkspace';
-import NewWorkspace from './buttons/NewWorkspace';
+import UploadWorkspace from './buttons/UploadWorkspace.jsx';
+import NewWorkspace from './buttons/NewWorkspace.jsx';
 
 const Welcome = (props) => {
   if (localStorage.key(0)) {
