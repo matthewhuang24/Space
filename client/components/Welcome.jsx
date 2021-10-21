@@ -4,6 +4,10 @@ import UploadWorkspace from './buttons/UploadWorkspace';
 import NewWorkspace from './buttons/NewWorkspace';
 
 const Welcome = (props) => {
+  if (localStorage.key(0)) {
+    window.location.replace('/dashboard');
+  }
+
   return (
     <div className="md:container md:mx-auto flex flex-col justify-center items-center h-screen">
       <div className="text-5xl p-4">
@@ -16,8 +20,5 @@ const Welcome = (props) => {
     </div>
   )
 };
-
-
-
 
 export default Welcome;
