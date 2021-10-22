@@ -1,31 +1,33 @@
 {
     "projects": [
       {
-        "name": "REFACTORED PROJECT TRACKER",
-        "technologies": [
+        "name": "Problems",
+        "technologies": [ 
           "React",
           "React Router",
           "React Hooks"
         ],
-        "description": "TAILWIND CSS, OPTIMIZING WEBPACK"
+        "description": "Revamping the UI with frontend heavy tech such as implementing tailwindCSS, material-tailwind to scale up modernization of best UI practices. Being able to save your progress and uploading it for future use."
       },
       {
-        "name": "ENZYME CHAI TESTS",
+        "name": "Solution",
         "technologies": [
           "React",
           "TailwindCSS"
-          
         ],
-        "description": ""
+        "description": "Vibrant attention grabbing colors, easy to follow workflow"
       },
       {
-        "name": "FILE UPLOAD / DOWNLOAD",
+        "name": "Technical Challenges",
         "technologies": [
-          "React",
-          "React Router",
-          "React Hooks"
+          "Tailwind CSS Framework",
+          "File Uploader"
         ],
-        "description": "I PLANNED MY 1ST PROJECT!!"
+        "description": "File uploading to localStorage (data conversion), Webpack optimization, React Hooks "
       }
     ]
 }
+
+
+
+
