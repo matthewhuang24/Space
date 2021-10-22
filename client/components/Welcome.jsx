@@ -3,7 +3,7 @@ import React from 'react';
 import UploadWorkspace from './buttons/UploadWorkspace.jsx';
 import NewWorkspace from './buttons/NewWorkspace.jsx';
 
-import logo from '../../images/temp.png';
+import logo from '../../images/space_welcome.png';
 
 const Welcome = (props) => {
 
@@ -17,7 +17,7 @@ const Welcome = (props) => {
 
   return (
     <div className="md:container md:mx-auto flex flex-col justify-center items-center h-screen">
-      <img src={logo} />
+      <img className="mb-5" src={logo} />
       <div className="w-96 flex justify-around p-2">
         <UploadWorkspace storageKey={props.storageKey} />
         <NewWorkspace storageKey={props.storageKey} />
